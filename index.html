@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake & Apple</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Snake & Apple</h1>
+        <div class="score-container">
+            <div class="score">Score: <span id="score">0</span></div>
+            <div class="high-score">Best: <span id="highScore">0</span></div>
+        </div>
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+        
+        <div class="controls">
+            <div></div>
+            <div class="control-btn" onclick="handleControl('ArrowUp')">
+                <i class="fas fa-arrow-up"></i>
+            </div>
+            <div></div>
+            <div class="control-btn" onclick="handleControl('ArrowLeft')">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <div class="control-btn" onclick="handleControl('ArrowDown')">
+                <i class="fas fa-arrow-down"></i>
+            </div>
+            <div class="control-btn" onclick="handleControl('ArrowRight')">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <p>🎮 Use arrow keys or touch controls to move</p>
+            <p>🍎 Collect apples to grow and score points</p>
+            <p>⚡ Speed increases every 50 points</p>
+        </div>
+    </div>
+
+    <div id="gameOver" class="game-over">
+        <h2>Game Over!</h2>
+        <p>Final Score: <span id="finalScore">0</span></p>
+        <button onclick="startGame()">Play Again</button>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+</body>
+</html>

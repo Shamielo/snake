@@ -1,0 +1,183 @@
+:root {
+    --primary: #ff3b30;
+    --primary-dark: #d63029;
+    --background: #2c3e50;
+    --text: #ffffff;
+    --grid: #34495e;
+    --apple: #ff3b30;
+    --snake-head: #32cd32;
+    --snake-body: #228b22;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    background-image: 
+        radial-gradient(circle, transparent 20%, var(--background) 20%),
+        radial-gradient(circle, var(--grid) 20%, transparent 20%);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+}
+
+.game-container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: var(--apple);
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+h1::before, h1::after {
+    content: "🍎";
+    font-size: 2rem;
+}
+
+.score-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 1rem;
+}
+
+.score, .high-score {
+    flex: 1;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+}
+
+.score span, .high-score span {
+    color: var(--apple);
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+#gameCanvas {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 3px solid var(--apple);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 59, 48, 0.3);
+    transition: transform 0.3s ease;
+    margin: 1rem 0;
+}
+
+.game-over {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.95);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 2px solid var(--apple);
+    box-shadow: 0 0 50px rgba(255, 59, 48, 0.5);
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+    z-index: 100;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -60%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+.game-over h2 {
+    color: var(--apple);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.game-over p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+button {
+    background-color: var(--apple);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 59, 48, 0.3);
+}
+
+button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 59, 48, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.controls {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    max-width: 200px;
+    margin: 1rem auto;
+}
+
+.control-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+}
+
+.instructions {
+    margin-top: 1rem;
+    color: #888;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.instructions p {
+    margin: 0;
+}
